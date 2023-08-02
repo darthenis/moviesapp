@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="313.0" prefWidth="180.0" style="-fx-background-color: transparent; -fx-cursor: hand;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.movies.controllers.MovieCardController">
+   <children>
+      <StackPane prefHeight="270.0" prefWidth="180.0">
+         <children>
+            <ImageView fx:id="movieImage" fitHeight="265.0" fitWidth="178.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="69.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-90.0" />
+         </children>
+      </StackPane>
+      <Label fx:id="titleLabel" prefHeight="52.0" prefWidth="215.0" style="-fx-alignment: center;" text="Label" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

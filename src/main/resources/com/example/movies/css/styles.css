@@ -1,0 +1,14 @@
+.transparent {
+   -fx-background: #2a2d34;
+   -fx-border-color: #2a2d34;
+}
+
+/*.scroll-pane > .viewport {
+   -fx-background-color: transparent;
+}*/
+
+.buttonMenu:hover{
+    -fx-background-color: white;
+    -fx-color: black;
+    -fx-text-fill: black;
+}
