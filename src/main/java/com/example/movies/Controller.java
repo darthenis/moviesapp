@@ -1,14 +1,17 @@
 package com.example.movies;
 
 import com.example.movies.controllers.MovieCardController;
+import com.example.movies.models.ListEnum;
 import com.example.movies.models.Movie;
 import com.example.movies.services.MovieService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -23,24 +26,27 @@ public class Controller implements Initializable {
 
     @FXML
     private GridPane gridMovies;
-
     @FXML
     private ScrollPane mainScroll;
-
     private final MovieService movieService;
-
     List<Movie> listMovies;
-
     @FXML
     Label upcomingLabel;
+    @FXML
+    private Label nowPlayingLabel;
+    @FXML
+    private Label popularLabel;
+    @FXML
+    private Label topLabel;
 
     public Controller(){
         movieService = new MovieService();
     }
 
     @FXML
-    void getList() throws IOException {
-            listMovies = movieService.getMovies();
+    void getList(ListEnum listEnum) throws IOException {
+            listMovies = movieService.getMovies(listEnum);
+            gridMovies.getChildren().clear();
             int column = 1;
             int row = 0;
             try{
@@ -64,27 +70,79 @@ public class Controller implements Initializable {
             }
     }
 
+    void getLists(MouseEvent mouseEvent){
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mainScroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         mainScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
         try {
-            this.getList();
+            this.getList(ListEnum.NOW_PLAYING);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        //upcomingLabel.setUnderline(true);
-        //upcomingLabel.setBackground(new Background(new BackgroundFill(Color.GRAY, null, null)));
-        upcomingLabel.setBorder(getBottomBorder());
 
+        nowPlayingLabel.setBorder(getBottomBorder());
+
+        this.popularLabel.setOnMouseClicked(mouseEvent -> {
+            try {
+                this.getList(ListEnum.POPULAR);
+                this.clearBorder();
+                this.popularLabel.setBorder(getBottomBorder());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        this.topLabel.setOnMouseClicked(mouseEvent -> {
+            try {
+                this.getList(ListEnum.TOP_RATED);
+                this.clearBorder();
+                this.topLabel.setBorder(getBottomBorder());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        this.nowPlayingLabel.setOnMouseClicked(mouseEvent -> {
+            try {
+                this.getList(ListEnum.NOW_PLAYING);
+                this.clearBorder();
+                this.nowPlayingLabel.setBorder(getBottomBorder());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        this.upcomingLabel.setOnMouseClicked(mouseEvent -> {
+            try {
+                this.getList(ListEnum.UPCOMING);
+                this.clearBorder();
+                this.upcomingLabel.setBorder(getBottomBorder());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
+    void clearBorder(){
+        BorderStroke borderStroke = new BorderStroke(null, null, null, null);
+        Border border = new Border(borderStroke);
+        nowPlayingLabel.setBorder(border);
+        popularLabel.setBorder(border);
+        topLabel.setBorder(border);
+        upcomingLabel.setBorder(border);
     }
 
     Border getBottomBorder(){
         BorderStroke borderStroke = new BorderStroke(
-                Color.GRAY,               // Color del borde
+                Color.WHITE,               // Color del borde
                 BorderStrokeStyle.SOLID, // Estilo del borde (puede ser punteado, discontinuo, etc.)
                 null,                   // Radios de esquina (null para usar los valores por defecto)
-                new BorderWidths(1, 0, 1, 0) // Grosor del borde (arriba, derecha, abajo, izquierda)
+                new BorderWidths(0, 0, 1, 0) // Grosor del borde (arriba, derecha, abajo, izquierda)
         );
 
         // Crea un borde con el borde inferior personalizado

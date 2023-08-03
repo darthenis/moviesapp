@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3806182d-6e0b-49f6-9d45-67dec774bc93" name="Changes" comment="first update">
+    <list default="true" id="3806182d-6e0b-49f6-9d45-67dec774bc93" name="Changes" comment="fixed border scrollpane">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/ListEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/services/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/services/MovieService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/movies/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +21,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -33,14 +37,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Emiliano/IdeaProjects/Movies/src/main/resources/com/example/movies/images"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Emiliano/IdeaProjects/Movies/src/main/resources/com/example/movies/images&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Emiliano\IdeaProjects\Movies\src\main\resources\com\example\movies\images" />
@@ -80,11 +84,20 @@
       <option name="project" value="LOCAL" />
       <updated>1691019671598</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fixed border scrollpane">
+      <option name="closed" value="true" />
+      <created>1691022677977</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1691022677977</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first update" />
-    <option name="LAST_COMMIT_MESSAGE" value="first update" />
+    <MESSAGE value="fixed border scrollpane" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed border scrollpane" />
   </component>
 </project>

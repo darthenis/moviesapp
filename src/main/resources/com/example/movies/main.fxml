@@ -60,22 +60,22 @@
    <left>
       <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="upcomingLabel" prefHeight="20.0" prefWidth="83.0" style="-fx-alignment: center;" styleClass="buttonMenu" stylesheets="@css/styles.css" text="En Cartelera" textFill="WHITE">
+            <Label fx:id="nowPlayingLabel" prefHeight="20.0" prefWidth="90.0" style="-fx-alignment: center;" styleClass="buttonMenu" stylesheets="@css/styles.css" text="Now Playing" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label prefHeight="18.0" prefWidth="70.0" style="-fx-alignment: center;" styleClass="buttonMenu" stylesheets="@css/styles.css" text="Populares" textFill="WHITE">
+            <Label fx:id="popularLabel" prefHeight="18.0" prefWidth="70.0" style="-fx-alignment: center;" styleClass="buttonMenu" stylesheets="@css/styles.css" text="Popular" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label prefHeight="21.0" prefWidth="27.0" style="-fx-alignment: center;" styleClass="buttonMenu" stylesheets="@css/styles.css" text="Top" textFill="WHITE">
+            <Label fx:id="topLabel" prefHeight="21.0" prefWidth="27.0" style="-fx-alignment: center;" styleClass="buttonMenu" stylesheets="@css/styles.css" text="Top" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label prefHeight="20.0" prefWidth="70.0" style="-fx-alignment: center;" styleClass="buttonMenu" stylesheets="@css/styles.css" text="A Estrenar" textFill="WHITE">
+            <Label fx:id="upcomingLabel" prefHeight="20.0" prefWidth="78.0" style="-fx-alignment: center;" styleClass="buttonMenu" stylesheets="@css/styles.css" text="Up Coming" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
