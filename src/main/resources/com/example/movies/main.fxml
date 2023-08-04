@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -14,34 +16,57 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #2a2d34;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.movies.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #2a2d34;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.movies.Controller">
    <top>
-      <HBox prefHeight="37.0" prefWidth="600.0" style="-fx-padding: 0, 10, 0, 10;" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="900.0" spacing="5.0" style="-fx-padding: 0, 10, 0, 10;" BorderPane.alignment="CENTER">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
          <children>
-            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="165.0">
+            <HBox alignment="CENTER" prefHeight="58.0" prefWidth="102.0">
                <children>
-                  <ImageView fitHeight="50.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/pochoclito.png" />
                      </image>
                   </ImageView>
                </children>
             </HBox>
-            <Label prefHeight="50.0" prefWidth="866.0" style="-fx-padding: 2; -fx-alignment: center;" text="Cine" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font name="Calibri" size="37.0" />
-               </font>
-            </Label>
+            <Separator maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL" prefHeight="32.0" prefWidth="0.0" HBox.hgrow="NEVER" />
+            <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="26.0" prefWidth="180.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+               <children>
+                  <TextField fx:id="searchField" focusTraversable="false" promptText="Buscar" style="-fx-background-color: transparent;" />
+                  <ImageView fitHeight="23.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/lupa.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="596.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="35.0" prefWidth="70.0" text="Explorar" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="18.0" prefWidth="74.0" text="Favoritos" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
          </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
       </HBox>
    </top>
    <center>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane fx:id="mainScroll" stylesheets="@css/styles.css" HBox.hgrow="ALWAYS">
+            <ScrollPane fx:id="mainScroll" prefHeight="463.0" prefWidth="790.0" stylesheets="@css/styles.css" HBox.hgrow="ALWAYS">
                <content>
                   <GridPane fx:id="gridMovies" prefHeight="2.0" prefWidth="0.0">
                     <columnConstraints>
@@ -57,37 +82,8 @@
          </children>
       </HBox>
    </center>
-   <left>
-      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label fx:id="nowPlayingLabel" prefHeight="20.0" prefWidth="90.0" style="-fx-alignment: center;" styleClass="buttonMenu" stylesheets="@css/styles.css" text="Now Playing" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="popularLabel" prefHeight="18.0" prefWidth="70.0" style="-fx-alignment: center;" styleClass="buttonMenu" stylesheets="@css/styles.css" text="Popular" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="topLabel" prefHeight="21.0" prefWidth="27.0" style="-fx-alignment: center;" styleClass="buttonMenu" stylesheets="@css/styles.css" text="Top" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="upcomingLabel" prefHeight="20.0" prefWidth="78.0" style="-fx-alignment: center;" styleClass="buttonMenu" stylesheets="@css/styles.css" text="Up Coming" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-         </children>
-         <padding>
-            <Insets top="10.0" />
-         </padding>
-      </VBox>
-   </left>
    <bottom>
-      <HBox alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="890.0" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="TOP_RIGHT" prefHeight="28.0" prefWidth="254.0">
                <children>
@@ -112,4 +108,75 @@
          </padding>
       </HBox>
    </bottom>
+   <left>
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" prefHeight="579.0" prefWidth="111.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="30.0" prefWidth="111.0" style="-fx-alignment: center;" text="Listas" textFill="WHITE" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font name="Cambria Bold" size="24.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </Label>
+            <Label fx:id="nowPlayingLabel" prefHeight="20.0" prefWidth="90.0" styleClass="buttonMenu" stylesheets="@css/styles.css" text="En Cartelera" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="popularLabel" prefHeight="20.0" prefWidth="78.0" styleClass="buttonMenu" stylesheets="@css/styles.css" text="Populares" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="topLabel" prefHeight="22.0" prefWidth="93.0" styleClass="buttonMenu" stylesheets="@css/styles.css" text="Más Votadas" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="upcomingLabel" prefHeight="20.0" prefWidth="78.0" styleClass="buttonMenu" stylesheets="@css/styles.css" text="A Estrenar" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="18.0" prefWidth="113.0" style="-fx-alignment: center;" text="Géneros" textFill="WHITE">
+               <font>
+                  <Font name="Cambria Bold" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="2.0" top="2.0" />
+               </VBox.margin>
+            </Label>
+            <ScrollPane fx:id="menuScroll" maxHeight="-Infinity" prefHeight="366.0" prefWidth="111.0" stylesheets="@css/styles.css">
+               <content>
+                  <VBox fx:id="menu" alignment="TOP_CENTER" prefHeight="344.0" prefWidth="106.0" stylesheets="@css/styles.css">
+                     <styleClass>
+                        <String fx:value="transparent" />
+                        <String fx:value="edge-to-edge" />
+                     </styleClass>
+                  </VBox>
+               </content>
+               <styleClass>
+                  <String fx:value="edge-to-edge" />
+                  <String fx:value="transparent" />
+               </styleClass>
+            </ScrollPane>
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </VBox>
+   </left>
 </BorderPane>

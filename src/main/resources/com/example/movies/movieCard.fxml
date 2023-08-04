@@ -6,15 +6,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="313.0" prefWidth="180.0" style="-fx-background-color: transparent; -fx-cursor: hand;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.movies.controllers.MovieCardController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="223.0" prefWidth="143.0" style="-fx-background-color: transparent; -fx-cursor: hand;" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.movies.controllers.MovieCardController">
    <children>
-      <StackPane prefHeight="270.0" prefWidth="180.0">
+      <StackPane prefHeight="196.0" prefWidth="134.0">
          <children>
-            <ImageView fx:id="movieImage" fitHeight="265.0" fitWidth="178.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="69.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-90.0" />
+            <ImageView fitHeight="55.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-70.0" />
+            <ImageView fx:id="movieImage" fitHeight="192.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true" styleClass="cardMovie" />
          </children>
       </StackPane>
-      <Label fx:id="titleLabel" prefHeight="52.0" prefWidth="215.0" style="-fx-alignment: center;" text="Label" textAlignment="CENTER">
+      <Label fx:id="titleLabel" prefHeight="26.0" prefWidth="138.0" style="-fx-alignment: center;" text="Label" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

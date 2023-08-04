@@ -1,8 +1,11 @@
-package com.example.movies.models;
+package com.example.movies.DTO;
+
+import com.example.movies.models.Dates;
+import com.example.movies.models.Movie;
 
 import java.util.List;
 
-public class ListMovies {
+public class ListMoviesDTO {
     private Dates dates;
     private int page;
     private List<Movie> results;
@@ -11,14 +14,14 @@ public class ListMovies {
 
 
 
-    public ListMovies(int page, List<Movie> results, int total_pages, int total_results, Dates dates) {
+    public ListMoviesDTO(int page, List<Movie> results, int total_pages, int total_results, Dates dates) {
         this.page = page;
         this.results = results;
         this.total_pages = total_pages;
         this.total_results = total_results;
         this.dates = dates;
     }
-    public ListMovies(){}
+    public ListMoviesDTO(){}
 
     public int getPage() {
         return page;

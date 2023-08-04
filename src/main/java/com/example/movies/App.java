@@ -10,9 +10,8 @@ import java.io.IOException;
 public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        System.out.println("location in app: "+ App.class.getResource("test.txt"));
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("main.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 920, 500);
+        Scene scene = new Scene(fxmlLoader.load(), 920, 650);
         stage.setTitle("Movies");
         stage.setResizable(false);
         stage.setFullScreen(false);

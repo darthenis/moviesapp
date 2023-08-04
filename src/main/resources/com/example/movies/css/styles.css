@@ -12,3 +12,37 @@
     -fx-color: black;
     -fx-text-fill: black;
 }
+
+.buttonMenu{
+     -fx-background-radius: 20;
+     -fx-alignment: center;
+}
+
+.buttonSelected{
+        -fx-background-color: white;
+        -fx-text-fill: black;
+
+}
+
+.buttonUnselected{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.genreLabel:hover{
+    -fx-underline: true;
+}
+
+.selectedGenre{
+     -fx-underline: true;
+}
+
+.cardMovie:hover{
+    -fx-border-color: white;
+
+}
+
+.cardMovie{
+    -fx-border-color: transparent;
+
+}

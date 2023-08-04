@@ -11,4 +11,5 @@ module com.example.movies {
     exports com.example.movies.controllers;
     exports com.example.movies.models;
     opens com.example.movies.controllers to javafx.fxml;
+    exports com.example.movies.DTO;
 }

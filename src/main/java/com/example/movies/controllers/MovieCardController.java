@@ -1,6 +1,7 @@
 package com.example.movies.controllers;
 
 import com.example.movies.models.Movie;
+import com.example.movies.models.SearchMovie;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -20,4 +21,11 @@ public class MovieCardController{
         titleLabel.setText(movie.getTitle());
         movieImage.setImage(image);
     }
+
+    public void setDataSearch(SearchMovie searchMovie){
+        Image image = new Image(baseUrl+searchMovie.getPoster_path(), true);
+        titleLabel.setText(searchMovie.getName());
+        movieImage.setImage(image);
+    }
+
 }

@@ -4,12 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3806182d-6e0b-49f6-9d45-67dec774bc93" name="Changes" comment="fixed border scrollpane">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/ListEnum.java" afterDir="false" />
+    <list default="true" id="3806182d-6e0b-49f6-9d45-67dec774bc93" name="Changes" comment="added features menus">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/DTO/ListGenresDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/DTO/ListSearchMoviesDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/DetailsMovieController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/Genre.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/SearchMovie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/images/lupa.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/MovieCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/MovieCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/models/ListMovies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/DTO/ListMoviesDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/services/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/services/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/movies/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/movies/details-movie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/details-movie.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/movies/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/movies/movieCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/movieCard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +32,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="FxmlFile" />
         <option value="Class" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -42,7 +55,10 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Emiliano/IdeaProjects/Movies/src/main/resources/com/example/movies/images&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Emiliano/IdeaProjects/Movies/src/main/resources/com/example/movies/images&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -92,12 +108,21 @@
       <option name="project" value="LOCAL" />
       <updated>1691022677977</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added features menus">
+      <option name="closed" value="true" />
+      <created>1691078240213</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1691078240213</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first update" />
     <MESSAGE value="fixed border scrollpane" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed border scrollpane" />
+    <MESSAGE value="added features menus" />
+    <option name="LAST_COMMIT_MESSAGE" value="added features menus" />
   </component>
 </project>
