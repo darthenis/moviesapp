@@ -4,21 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3806182d-6e0b-49f6-9d45-67dec774bc93" name="Changes" comment="added features menus">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/DTO/ListGenresDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/DTO/ListSearchMoviesDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/DetailsMovieController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/Genre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/SearchMovie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/images/lupa.png" afterDir="false" />
+    <list default="true" id="3806182d-6e0b-49f6-9d45-67dec774bc93" name="Changes" comment="added features genres and search">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/Cast.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/CreditsMovie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/Crew.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/DetailMovie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/MovieDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/ProductionCompany.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/ProductionCountry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/SpokenLanguage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/DetailsMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/DetailsMovieController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/MovieCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/MovieCardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/models/ListMovies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/DTO/ListMoviesDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/services/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/services/MovieService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/movies/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/movies/details-movie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/details-movie.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/movies/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/main.fxml" afterDir="false" />
@@ -116,13 +116,22 @@
       <option name="project" value="LOCAL" />
       <updated>1691078240213</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added features genres and search">
+      <option name="closed" value="true" />
+      <created>1691186889746</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1691186889746</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first update" />
     <MESSAGE value="fixed border scrollpane" />
     <MESSAGE value="added features menus" />
-    <option name="LAST_COMMIT_MESSAGE" value="added features menus" />
+    <MESSAGE value="added features genres and search" />
+    <option name="LAST_COMMIT_MESSAGE" value="added features genres and search" />
   </component>
 </project>

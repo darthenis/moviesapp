@@ -64,7 +64,7 @@
       </HBox>
    </top>
    <center>
-      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox fx:id="containerMain" alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <ScrollPane fx:id="mainScroll" prefHeight="463.0" prefWidth="790.0" stylesheets="@css/styles.css" HBox.hgrow="ALWAYS">
                <content>

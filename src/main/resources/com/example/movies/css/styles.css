@@ -46,3 +46,15 @@
     -fx-border-color: transparent;
 
 }
+}
+.textCard{
+    -fx-fill: white;
+}
+
+.cardInfo{
+    -fx-opacity: 0;
+}
+
+.cardInfo:hover{
+    -fx-opacity: 1;
+}

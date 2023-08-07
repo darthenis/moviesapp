@@ -1,5 +1,6 @@
 package com.example.movies;
 
+import com.example.movies.controllers.DetailsMovieController;
 import com.example.movies.controllers.MovieCardController;
 import com.example.movies.models.Genre;
 import com.example.movies.models.ListEnum;
@@ -34,6 +35,8 @@ public class Controller implements Initializable {
 
     private Label genreSelected;
     @FXML
+    private HBox containerMain;
+    @FXML
     private GridPane gridMovies;
     @FXML
     private ScrollPane mainScroll;
@@ -67,7 +70,30 @@ public class Controller implements Initializable {
             this.generateCardsMovie(listMovies, null);
     }
 
+    private void reGenerateGrid(){
+        containerMain.getChildren().clear();
+        containerMain.getChildren().add(mainScroll);
+    }
+
+    private void addEventClickedMovie(VBox container, Movie movie){
+        container.setOnMouseClicked(mouseEvent -> {
+            containerMain.getChildren().clear();
+            URL fxmlLocation = getClass().getResource("details-movie.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader(fxmlLocation);
+            try {
+                BorderPane detailPane = fxmlLoader.load();
+                DetailsMovieController detailsCardController = fxmlLoader.getController();
+                detailsCardController.setData(movie);
+                containerMain.getChildren().add(detailPane);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+    }
+
     private void generateCardsMovie(List<Movie> movies, List<SearchMovie> searchMovies){
+        reGenerateGrid();
         gridMovies.getChildren().clear();
         int column = 1;
         int row = 0;
@@ -80,6 +106,7 @@ public class Controller implements Initializable {
                     VBox movieBox = fxmlLoader.load();
                     MovieCardController movieCardController = fxmlLoader.getController();
                     movieCardController.setData(m);
+                    addEventClickedMovie(movieCardController.getContainerCard(), m);
 
                     gridMovies.add(movieBox, column++, row);
                     GridPane.setMargin(movieBox, new Insets(5));
@@ -200,6 +227,7 @@ public class Controller implements Initializable {
 
 
     private void generateGenres() throws IOException {
+        reGenerateGrid();
         List<Genre> genres = movieService.getGenres();
         for(Genre genre : genres){
             Label label = new Label();
@@ -224,12 +252,6 @@ public class Controller implements Initializable {
         }
         newLabel.getStyleClass().add("selectedGenre");
         genreSelected = newLabel;
-    }
-
-    void clearSelectedLabels(){
-        genreSelected = null;
-        labelSelected = null;
-
     }
 
     void genreLabelEvent(int id) throws IOException {
