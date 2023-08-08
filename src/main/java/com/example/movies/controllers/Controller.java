@@ -1,5 +1,6 @@
-package com.example.movies;
+package com.example.movies.controllers;
 
+import com.example.movies.App;
 import com.example.movies.controllers.DetailsMovieController;
 import com.example.movies.controllers.MovieCardController;
 import com.example.movies.models.Genre;
@@ -22,6 +23,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 
 import java.io.IOException;
@@ -60,6 +63,8 @@ public class Controller implements Initializable {
     @FXML
     private ScrollPane menuScroll;
 
+    private Stage stage;
+
     public Controller(){
         movieService = new MovieService();
     }
@@ -70,21 +75,25 @@ public class Controller implements Initializable {
             this.generateCardsMovie(listMovies, null);
     }
 
-    private void reGenerateGrid(){
-        containerMain.getChildren().clear();
-        containerMain.getChildren().add(mainScroll);
+    public void setStage(Stage stage){
+        this.stage = stage;
     }
+
 
     private void addEventClickedMovie(VBox container, Movie movie){
         container.setOnMouseClicked(mouseEvent -> {
-            containerMain.getChildren().clear();
-            URL fxmlLocation = getClass().getResource("details-movie.fxml");
+            gridMovies.getChildren().clear();
+            gridMovies.getChildren().add(new Label("Loading..."));
+            URL fxmlLocation = App.class.getResource("details-movie.fxml");
             FXMLLoader fxmlLoader = new FXMLLoader(fxmlLocation);
             try {
+
                 BorderPane detailPane = fxmlLoader.load();
+                gridMovies.getChildren().clear();
+                gridMovies.getChildren().add(detailPane);
                 DetailsMovieController detailsCardController = fxmlLoader.getController();
                 detailsCardController.setData(movie);
-                containerMain.getChildren().add(detailPane);
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -93,7 +102,6 @@ public class Controller implements Initializable {
     }
 
     private void generateCardsMovie(List<Movie> movies, List<SearchMovie> searchMovies){
-        reGenerateGrid();
         gridMovies.getChildren().clear();
         int column = 1;
         int row = 0;
@@ -101,7 +109,7 @@ public class Controller implements Initializable {
         try{
             if(searchMovies == null){
                 for(Movie m : movies){
-                    URL fxmlLocation = getClass().getResource("movieCard.fxml");
+                    URL fxmlLocation = App.class.getResource("movieCard.fxml");
                     FXMLLoader fxmlLoader = new FXMLLoader(fxmlLocation);
                     VBox movieBox = fxmlLoader.load();
                     MovieCardController movieCardController = fxmlLoader.getController();
@@ -118,7 +126,7 @@ public class Controller implements Initializable {
                 }
             } else {
                 for(SearchMovie m : searchMovies){
-                    URL fxmlLocation = getClass().getResource("movieCard.fxml");
+                    URL fxmlLocation = App.class.getResource("movieCard.fxml");
                     FXMLLoader fxmlLoader = new FXMLLoader(fxmlLocation);
                     VBox movieBox = fxmlLoader.load();
                     MovieCardController movieCardController = fxmlLoader.getController();
@@ -227,7 +235,6 @@ public class Controller implements Initializable {
 
 
     private void generateGenres() throws IOException {
-        reGenerateGrid();
         List<Genre> genres = movieService.getGenres();
         for(Genre genre : genres){
             Label label = new Label();

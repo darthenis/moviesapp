@@ -54,7 +54,6 @@ public class MovieCardController {
         averageLabel.setText(String.valueOf(movie.getVote_average()));
         movieImage.setImage(image);
         containerCard.setOnMouseEntered(event -> {
-            System.out.println("entro");
             textFlow.setOpacity(1); // Mostrar el texto afectado al hacer hover
         });
 

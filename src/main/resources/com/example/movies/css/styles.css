@@ -58,3 +58,13 @@
 .cardInfo:hover{
     -fx-opacity: 1;
 }
+
+.loginButton{
+    -fx-background-color: #2a2d34;
+    -fx-text-fill: white;
+}
+
+.loginButton:hover{
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
