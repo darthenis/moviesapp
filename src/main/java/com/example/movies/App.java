@@ -1,6 +1,7 @@
 package com.example.movies;
 
 import com.example.movies.controllers.LoginController;
+import com.example.movies.security.SessionManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,14 +11,19 @@ import java.io.IOException;
 
 public class App extends Application {
 
-    private String sessionId;
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1010, 650);
-        LoginController controller = fxmlLoader.getController();
-        sessionId = controller.getSessionId();
-        controller.setStage(stage);
+        Scene scene;
+        if(SessionManager.loadToken() == null){
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login.fxml"));
+            scene = new Scene(fxmlLoader.load(), 1010, 650);
+            LoginController controller = fxmlLoader.getController();
+            controller.setStage(stage);
+        } else {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("main.fxml"));
+            scene = new Scene(fxmlLoader.load(), 1010, 650);
+        }
+
         stage.setTitle("TodoPelis");
         stage.setResizable(false);
         stage.setFullScreen(false);

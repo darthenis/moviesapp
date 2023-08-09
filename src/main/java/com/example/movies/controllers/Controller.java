@@ -1,29 +1,19 @@
 package com.example.movies.controllers;
 
 import com.example.movies.App;
-import com.example.movies.controllers.DetailsMovieController;
-import com.example.movies.controllers.MovieCardController;
-import com.example.movies.models.Genre;
-import com.example.movies.models.ListEnum;
-import com.example.movies.models.Movie;
-import com.example.movies.models.SearchMovie;
+import com.example.movies.models.*;
+import com.example.movies.security.SessionManager;
 import com.example.movies.services.MovieService;
+import com.example.movies.services.UserService;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -34,8 +24,15 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
+    private String session_id;
+    @FXML
+    private MenuItem logout;
+    //agregar logout funcionalidad
+    @FXML
     private Label labelSelected;
-
+    @FXML
+    private MenuButton userName;
+    @FXML
     private Label genreSelected;
     @FXML
     private HBox containerMain;
@@ -44,6 +41,8 @@ public class Controller implements Initializable {
     @FXML
     private ScrollPane mainScroll;
     private final MovieService movieService;
+
+    private final UserService userService;
 
     @FXML
     private Label upcomingLabel;
@@ -66,6 +65,7 @@ public class Controller implements Initializable {
     private Stage stage;
 
     public Controller(){
+        userService = new UserService();
         movieService = new MovieService();
     }
 
@@ -154,6 +154,9 @@ public class Controller implements Initializable {
         menuScroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         menuScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
+        String username = userService.getUser().getUsername();
+        System.out.println("username: "+username);
+        this.userName.setText(username);
 
         try {
             this.generateGenres();
@@ -264,6 +267,10 @@ public class Controller implements Initializable {
     void genreLabelEvent(int id) throws IOException {
         List<Movie> movies = this.movieService.filterByGenre(id);
         this.generateCardsMovie(movies, null);
+    }
+
+    public void setSessionid(String sessionid){
+        this.session_id = sessionid;
     }
 
 }

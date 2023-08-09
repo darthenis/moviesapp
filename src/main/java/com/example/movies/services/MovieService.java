@@ -16,7 +16,13 @@ public class MovieService {
 
     OkHttpClient client = new OkHttpClient();
 
+    private String API_KEY = "9b8b5a71ed3f7d0620bf8ec5f58c0fca";
+
     private ListEnum selectedList;
+
+    public MovieService(){
+
+    }
 
     public List<Movie> getMovies(ListEnum listEnum) throws IOException {
         String list;
@@ -39,8 +45,7 @@ public class MovieService {
                 break;
         }
         Request request = new Request.Builder()
-                .url("https://api.themoviedb.org/3/movie/"+list+"?language=es-ES&page=1")
-                .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjhiNWE3MWVkM2Y3ZDA2MjBiZjhlYzVmNThjMGZjYSIsInN1YiI6IjYyOTkyNmViY2RkYmJjNmUwOTVjZjE4YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ml8V2_zplNSePypNBheHkWszv-7eZZMJGPxzmcfBv5k")
+                .url("https://api.themoviedb.org/3/movie/"+list+"?language=es-ES&page=1&api_key="+API_KEY)
                 .build();
 
         Response response = client.newCall(request).execute();
@@ -53,8 +58,7 @@ public class MovieService {
 
     public List<Genre> getGenres() throws IOException {
         Request request = new Request.Builder()
-                .url("https://api.themoviedb.org/3/genre/movie/list?language=es")
-                .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjhiNWE3MWVkM2Y3ZDA2MjBiZjhlYzVmNThjMGZjYSIsInN1YiI6IjYyOTkyNmViY2RkYmJjNmUwOTVjZjE4YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ml8V2_zplNSePypNBheHkWszv-7eZZMJGPxzmcfBv5k")
+                .url("https://api.themoviedb.org/3/genre/movie/list?language=es&api_key="+API_KEY)
                 .build();
 
         Response response = client.newCall(request).execute();
@@ -83,8 +87,7 @@ public class MovieService {
         }
 
         Request request = new Request.Builder()
-                .url("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=es-Es&page=1&" + sort + type + "&with_genres=" + id)
-                .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjhiNWE3MWVkM2Y3ZDA2MjBiZjhlYzVmNThjMGZjYSIsInN1YiI6IjYyOTkyNmViY2RkYmJjNmUwOTVjZjE4YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ml8V2_zplNSePypNBheHkWszv-7eZZMJGPxzmcfBv5k")
+                .url("https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=es-Es&page=1&" + sort + type + "&with_genres=" + id + "&api_key="+API_KEY)
                 .build();
 
         Response response = client.newCall(request).execute();
@@ -97,8 +100,7 @@ public class MovieService {
 
     public List<SearchMovie> searchByQuery(String query) throws IOException {
         Request request = new Request.Builder()
-                .url("https://api.themoviedb.org/3/search/collection?query="+query+"&include_adult=false&language=en-US&page=1")
-                .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjhiNWE3MWVkM2Y3ZDA2MjBiZjhlYzVmNThjMGZjYSIsInN1YiI6IjYyOTkyNmViY2RkYmJjNmUwOTVjZjE4YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ml8V2_zplNSePypNBheHkWszv-7eZZMJGPxzmcfBv5k")
+                .url("https://api.themoviedb.org/3/search/collection?query="+query+"&include_adult=false&language=en-US&page=1&api_key="+ API_KEY)
                 .build();
 
         Response response = client.newCall(request).execute();
@@ -111,8 +113,7 @@ public class MovieService {
 
     public MovieDetail getDetailMovie(Integer id) throws IOException {
         Request request = new Request.Builder()
-                .url("https://api.themoviedb.org/3/movie/"+id+"?language=es-ES'")
-                .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjhiNWE3MWVkM2Y3ZDA2MjBiZjhlYzVmNThjMGZjYSIsInN1YiI6IjYyOTkyNmViY2RkYmJjNmUwOTVjZjE4YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ml8V2_zplNSePypNBheHkWszv-7eZZMJGPxzmcfBv5k")
+                .url("https://api.themoviedb.org/3/movie/"+id+"?language=es-ES&api_key="+API_KEY)
                 .build();
 
         Response response = client.newCall(request).execute();
@@ -124,8 +125,7 @@ public class MovieService {
 
     public CreditsMovie getCredits(int id) throws IOException {
         Request request = new Request.Builder()
-                .url("https://api.themoviedb.org/3/movie/"+id+"/credits?language=es-ES'")
-                .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjhiNWE3MWVkM2Y3ZDA2MjBiZjhlYzVmNThjMGZjYSIsInN1YiI6IjYyOTkyNmViY2RkYmJjNmUwOTVjZjE4YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ml8V2_zplNSePypNBheHkWszv-7eZZMJGPxzmcfBv5k")
+                .url("https://api.themoviedb.org/3/movie/"+id+"/credits?language=es-ES&api_key="+API_KEY)
                 .build();
 
         Response response = client.newCall(request).execute();

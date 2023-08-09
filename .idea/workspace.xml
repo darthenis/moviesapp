@@ -4,20 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3806182d-6e0b-49f6-9d45-67dec774bc93" name="Changes" comment="added features resume info in card and detail movie info">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/DTO/GetTokenRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/services/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/images/bg-login.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/images/loading.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/login.fxml" afterDir="false" />
+    <list default="true" id="3806182d-6e0b-49f6-9d45-67dec774bc93" name="Changes" comment="added login screen">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/Avatar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/Gravatar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/Tmdb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/security/SessionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/services/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/images/iconUser.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/MovieCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/MovieCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/services/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/services/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/movies/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/movies/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/movies/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/movies/details-movie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/details-movie.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/movies/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/movies/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/movies/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,8 +33,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -46,17 +50,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Emiliano/IdeaProjects/Movies/src/main/resources/com/example/movies/images&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Emiliano/IdeaProjects/Movies/src/main/resources/com/example/movies/images",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Emiliano\IdeaProjects\Movies\src\main\resources\com\example\movies\images" />
@@ -128,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691444712858</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added login screen">
+      <option name="closed" value="true" />
+      <created>1691521373906</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1691521373906</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,6 +160,7 @@
     <MESSAGE value="added features menus" />
     <MESSAGE value="added features genres and search" />
     <MESSAGE value="added features resume info in card and detail movie info" />
-    <option name="LAST_COMMIT_MESSAGE" value="added features resume info in card and detail movie info" />
+    <MESSAGE value="added login screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="added login screen" />
   </component>
 </project>

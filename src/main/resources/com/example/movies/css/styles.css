@@ -68,3 +68,28 @@
     -fx-background-color: white;
     -fx-text-fill: black;
 }
+
+.check-box > .box {
+    -fx-padding: 3px;
+}
+
+.check-box > .box > .mark {
+    -fx-padding: 3px;
+}
+
+.menu-button{
+    -fx-padding:0;
+}
+
+.menu-button > .arrow-button {
+    -fx-fill: white;
+}
+
+.menu-button > .arrow-button > .arrow {
+    -fx-background-color: white;
+}
+
+.menu-button > label{
+-fx-padding: 0;
+-fx-margin: 0;
+}
