@@ -28,11 +28,6 @@
       </ImageView>
       <TextField fx:id="usernameInput" layoutX="167.0" layoutY="226.0" prefHeight="35.0" prefWidth="237.0" promptText="username" />
       <PasswordField fx:id="passwordInput" layoutX="167.0" layoutY="285.0" prefHeight="35.0" prefWidth="237.0" promptText="password" />
-      <Button fx:id="buttonLogin" layoutX="167.0" layoutY="343.0" mnemonicParsing="false" onAction="#login" prefHeight="36.0" prefWidth="237.0" style="-fx-border-color: white;" styleClass="loginButton" stylesheets="@css/styles.css" text="Ingresar" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Button>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="404.0" layoutY="36.0" prefHeight="77.0" prefWidth="202.0" text="TodoPelis" textFill="#d15252" textOverrun="CLIP">
          <font>
             <Font name="Impact" size="47.0" />
@@ -52,17 +47,25 @@
          <image>
             <Image url="@images/loading.png" />
          </image>
+         <effect>
+            <ColorAdjust brightness="0.43" contrast="-1.0" />
+         </effect>
       </ImageView>
       <Label fx:id="errorLabel" layoutX="177.0" layoutY="134.0" opacity="0.0" prefHeight="35.0" prefWidth="218.0" text="Usuario/contraseña incorrecto" textFill="#ff5d5d">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Pane fx:id="options" layoutX="167.0" layoutY="383.0" prefHeight="89.0" prefWidth="202.0">
+      <Pane fx:id="options" layoutX="167.0" layoutY="325.0" prefHeight="127.0" prefWidth="237.0">
          <children>
-            <CheckBox layoutY="6.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="158.0" text="Mantener sesión iniciada" textFill="WHITE" />
-            <Label layoutY="28.0" prefHeight="17.0" prefWidth="100.0" text="¿No tenés cuenta?" textFill="WHITE" />
-            <Label layoutX="101.0" layoutY="28.0" onMouseClicked="#onRegister" prefHeight="17.0" prefWidth="59.0" style="-fx-cursor: hand;" text="Registrarse" textFill="#3794ff" />
+            <CheckBox fx:id="keepSessioncheck" mnemonicParsing="false" prefHeight="17.0" prefWidth="158.0" text="Mantener sesión iniciada" textFill="WHITE" />
+            <Button fx:id="buttonLogin" layoutY="26.0" mnemonicParsing="false" onAction="#login" prefHeight="36.0" prefWidth="237.0" style="-fx-border-color: white;" styleClass="loginButton" stylesheets="@css/styles.css" text="Ingresar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Label layoutY="74.0" prefHeight="17.0" prefWidth="100.0" text="¿No tenés cuenta?" textFill="WHITE" />
+            <Label layoutX="100.0" layoutY="74.0" onMouseClicked="#onRegister" prefHeight="17.0" prefWidth="59.0" style="-fx-cursor: hand;" text="Registrarse" textFill="#3794ff" />
          </children>
       </Pane>
    </children>

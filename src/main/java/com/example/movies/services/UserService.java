@@ -12,13 +12,13 @@ import java.io.IOException;
 public class UserService {
     private String API_KEY = "9b8b5a71ed3f7d0620bf8ec5f58c0fca";
     OkHttpClient client = new OkHttpClient();
-    private String session_id;
+    private final String session_id;
 
     private User user;
 
     public UserService() {
-        if(SessionManager.loadToken() != null){
-            this.session_id = SessionManager.loadToken();
+        if(SessionManager.getPersistent() != null){
+            this.session_id = SessionManager.getPersistent();
         } else {
             this.session_id = SessionManager.getSession_id();
         }

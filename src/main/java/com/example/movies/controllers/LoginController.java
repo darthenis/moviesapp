@@ -10,16 +10,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import java.awt.Desktop;
+
+import java.awt.*;
 
 import java.io.IOException;
 import java.net.URI;
@@ -28,7 +29,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
-    private String session_id;
+    private Boolean keepSession = false;
+
+    @FXML
+    private CheckBox keepSessioncheck;
+
     @FXML
     private TextField usernameInput;
 
@@ -57,20 +62,24 @@ public class LoginController implements Initializable {
 
     @FXML
     void login(ActionEvent event) {
+        if(passwordInput.getText().isEmpty() || usernameInput.getText().isEmpty()){
+            return;
+        }
         this.activeLoading();
         Task<Void> loginTask = new Task<Void>() {
             @Override
             protected Void call() throws Exception {
-                authService.login(usernameInput.getText(), passwordInput.getText());
+                authService.login(usernameInput.getText(), passwordInput.getText(), keepSession);
                 return null;
             }
         };
 
         loginTask.setOnSucceeded(workerStateEvent -> {
             try {
-                SessionManager.setSession_id(authService.getSession_id());
                 FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("main.fxml"));
                 Scene scene = new Scene(fxmlLoader.load(), 1010, 650);
+                Controller controller = fxmlLoader.getController();
+                controller.setStage(stage);
                 stage.setScene(scene);
             } catch (IOException ioException) {
                 ioException.printStackTrace();
@@ -108,10 +117,6 @@ public class LoginController implements Initializable {
         buttonLogin.setOpacity(1);
     }
 
-    public String getSessionId(){
-        return this.session_id;
-    }
-
     public void setStage(Stage stage){
         this.stage = stage;
     }
@@ -126,7 +131,12 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         animationLoading();
+
+        keepSessioncheck.setOnAction(actionEvent -> {
+            this.keepSession = !this.keepSession;
+        });
     }
 
     @FXML

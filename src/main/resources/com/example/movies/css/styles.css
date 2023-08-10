@@ -3,6 +3,11 @@
    -fx-border-color: #2a2d34;
 }
 
+.blackGround{
+  -fx-background: black;
+   -fx-border-color: black;
+}
+
 /*.scroll-pane > .viewport {
    -fx-background-color: transparent;
 }*/
@@ -79,6 +84,7 @@
 
 .menu-button{
     -fx-padding:0;
+    -fx-background-color: black ;
 }
 
 .menu-button > .arrow-button {
@@ -89,7 +95,30 @@
     -fx-background-color: white;
 }
 
-.menu-button > label{
+.menu-button .label{
 -fx-padding: 0;
--fx-margin: 0;
+-fx-margin: 1;
+}
+
+.menu-item .label{
+    -fx-text-fill: white;
+}
+
+.context-menu {
+    -fx-pref-width: 120px;
+    -fx-translate-x: -25px;
+    -fx-background-color: #2a2d34;
+    -fx-text-fill: white;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+/*    -fx-padding: 0.666667em 0.083333em 0.666667em 0.083333em;  8 1 8 1 */
+    -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; /* 4 1 8 1 */
+}
+
+.buttonPage{
+    -fx-background-color: #2a2d34;
+    -fx-text-fill: white;
+    -fx-underline: true;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
 }

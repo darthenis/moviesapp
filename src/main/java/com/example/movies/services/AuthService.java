@@ -13,7 +13,7 @@ public class AuthService {
 
     private String session_id;
 
-    public void login(String username, String password) throws IOException {
+    public void login(String username, String password, boolean keepSession) throws IOException {
         String request_token = getRequestToken();
         OkHttpClient client = new OkHttpClient();
         MediaType mediaType = MediaType.parse("application/json");
@@ -25,8 +25,9 @@ public class AuthService {
                 .build();
 
         Response response = client.newCall(request).execute();
+        response.close();
         if(response.code() == 200){
-            getSessionId(request_token);
+            SessionManager.saveSession_id(getSessionId(request_token), keepSession);
         } else {
             throw new IOException("invalid");
         }
@@ -46,7 +47,7 @@ public class AuthService {
         return objectMapper.readValue(response.body().string(), GetTokenRequest.class).getRequest_token();
     }
 
-    private void getSessionId(String request_token) throws IOException {
+    private String getSessionId(String request_token) throws IOException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url("https://api.themoviedb.org/3/authentication/session/new?api_key="+API_KEY+"&request_token="+request_token)
@@ -57,7 +58,7 @@ public class AuthService {
         Response response = client.newCall(request).execute();
         ObjectMapper objectMapper = new ObjectMapper();
         assert response.body() != null;
-        session_id = objectMapper.readValue(response.body().string(), GetTokenRequest.class).getSession_id();
+        return objectMapper.readValue(response.body().string(), GetTokenRequest.class).getSession_id();
     }
 
     public String getSession_id(){

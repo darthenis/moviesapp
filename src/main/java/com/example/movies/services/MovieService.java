@@ -1,14 +1,14 @@
 package com.example.movies.services;
 
-import com.example.movies.DTO.ListGenresDTO;
-import com.example.movies.DTO.ListSearchMoviesDTO;
+import com.example.movies.DTO.*;
 import com.example.movies.models.*;
-import com.example.movies.DTO.ListMoviesDTO;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
@@ -19,6 +19,10 @@ public class MovieService {
     private String API_KEY = "9b8b5a71ed3f7d0620bf8ec5f58c0fca";
 
     private ListEnum selectedList;
+
+    private int page = 1;
+
+    private int totalPages = 1;
 
     public MovieService(){
 
@@ -45,17 +49,30 @@ public class MovieService {
                 break;
         }
         Request request = new Request.Builder()
-                .url("https://api.themoviedb.org/3/movie/"+list+"?language=es-ES&page=1&api_key="+API_KEY)
+                .url("https://api.themoviedb.org/3/movie/"+list+"?language=es-ES&page="+page+"&api_key="+API_KEY)
                 .build();
 
         Response response = client.newCall(request).execute();
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
         assert response.body() != null;
-        return objectMapper.readValue(response.body().string(), ListMoviesDTO.class).getResults();
+        ListMoviesDTO listMoviesDTO = objectMapper.readValue(response.body().string(), ListMoviesDTO.class);
+        this.totalPages = listMoviesDTO.getTotal_pages();
+        return listMoviesDTO.getResults();
 
     }
 
+    public void setPage(int page){
+        this.page = page;
+    }
+
+    public int getPage(){
+        return this.page;
+    }
+
+    public int getTotalPages(){
+        return this.totalPages;
+    }
     public List<Genre> getGenres() throws IOException {
         Request request = new Request.Builder()
                 .url("https://api.themoviedb.org/3/genre/movie/list?language=es&api_key="+API_KEY)
@@ -72,9 +89,6 @@ public class MovieService {
         String type = "";
         String sort = "sort_by=popularity.desc&";
         switch (selectedList) {
-            case NOW_PLAYING:
-                type = "with_release_type=2|3";
-                break;
             case POPULAR:
                 break;
             case TOP_RATED:
@@ -94,7 +108,10 @@ public class MovieService {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
         assert response.body() != null;
-        return objectMapper.readValue(response.body().string(), ListMoviesDTO.class).getResults();
+        ListMoviesDTO listMoviesDTO = objectMapper.readValue(response.body().string(), ListMoviesDTO.class);
+        this.totalPages = listMoviesDTO.getTotal_pages();
+        System.out.println("total: "+this.totalPages);
+        return listMoviesDTO.getResults();
 
     }
 
@@ -107,7 +124,9 @@ public class MovieService {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
         assert response.body() != null;
-        return objectMapper.readValue(response.body().string(), ListSearchMoviesDTO.class).getResults();
+        ListSearchMoviesDTO list = objectMapper.readValue(response.body().string(), ListSearchMoviesDTO.class);
+        this.totalPages = list.getTotal_pages();
+        return list.getResults();
 
     }
 
@@ -133,5 +152,31 @@ public class MovieService {
         objectMapper.registerModule(new JavaTimeModule());
         assert response.body() != null;
         return objectMapper.readValue(response.body().string(), CreditsMovie.class);
+    }
+
+    public ListVideosDTO getVideos(int id) throws IOException {
+        Request request = new Request.Builder()
+                .url("https://api.themoviedb.org/3/movie/"+id+"/videos?language=es-ES&api_key="+API_KEY)
+                .build();
+
+        Response response = client.newCall(request).execute();
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+        assert response.body() != null;
+        return objectMapper.readValue(response.body().string(), ListVideosDTO.class);
+    }
+
+    public List<Movie> getRecommend(int id) throws IOException {
+        Request request = new Request.Builder()
+                .url("https://api.themoviedb.org/3/movie/"+id+"/recommendations?language=es-ES&page=1&api_key="+API_KEY)
+                .get()
+                .addHeader("accept", "application/json")
+                .build();
+
+        Response response = client.newCall(request).execute();
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+        assert response.body() != null;
+        return objectMapper.readValue(response.body().string(), ListMoviesDTO.class).getResults();
     }
 }

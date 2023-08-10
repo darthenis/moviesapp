@@ -63,28 +63,35 @@ public class MovieCardController {
     }
 
     public void setDataSearch(SearchMovie searchMovie){
-        Image image = new Image(baseUrl+searchMovie.getPoster_path(), true);
-        Text text = new Text(cutText(searchMovie.getOverview()));
-        text.getStyleClass().add("textCard");
-        textFlow.getChildren().add(text);
-        titleLabel.setText(searchMovie.getName());
-        titleTextFlow.setText(searchMovie.getName());
+        try {
+
+            Image image = new Image(baseUrl + searchMovie.getPoster_path(), true);
+            Text text = new Text(cutText(searchMovie.getOverview()));
+            text.getStyleClass().add("textCard");
+            textFlow.getChildren().add(text);
+            titleLabel.setText(searchMovie.getName());
+            titleTextFlow.setText(searchMovie.getName());
+            averageLabel.setOpacity(0);
+            yearLabel.setOpacity(0);
 
 
-        containerCard.setOnMouseEntered(event -> {
-            System.out.println("entro");
-            textFlow.setOpacity(1); // Mostrar el texto afectado al hacer hover
-        });
+            containerCard.setOnMouseEntered(event -> {
+                textFlow.setOpacity(1); // Mostrar el texto afectado al hacer hover
+            });
 
-        containerCard.setOnMouseExited(event -> {
-            textFlow.setOpacity(0); // Ocultar el texto afectado al salir del hover
-        });
+            containerCard.setOnMouseExited(event -> {
+                textFlow.setOpacity(0); // Ocultar el texto afectado al salir del hover
+            });
 
-        movieImage.setImage(image);
+            movieImage.setImage(image);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     private String cutText(String text) {
-        if(text.length() > 19){
+        if(text.length() > 75){
             return text.substring(0, 75) + "...";
         } else {
             return text;

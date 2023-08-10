@@ -20,8 +20,10 @@ public class Movie {
     private Double vote_average;
     private int vote_count;
 
+    private String media_type;
+
     public Movie(){}
-    public Movie(boolean adult, String backdrop_path, List<Integer> genre_ids, int id, String original_language, String original_title, String overview, Double popularity, String poster_path, LocalDate release_date, String title, Boolean video, Double vote_average, int vote_count) {
+    public Movie(String media_type, boolean adult, String backdrop_path, List<Integer> genre_ids, int id, String original_language, String original_title, String overview, Double popularity, String poster_path, LocalDate release_date, String title, Boolean video, Double vote_average, int vote_count) {
         this.adult = adult;
         this.backdrop_path = backdrop_path;
         this.genre_ids = genre_ids;
@@ -36,6 +38,7 @@ public class Movie {
         this.video = video;
         this.vote_average = vote_average;
         this.vote_count = vote_count;
+        this.media_type = media_type;
     }
 
     public boolean isAdult() {
@@ -148,5 +151,13 @@ public class Movie {
 
     public void setVote_count(int vote_count) {
         this.vote_count = vote_count;
+    }
+
+    public String getMedia_type() {
+        return media_type;
+    }
+
+    public void setMedia_type(String media_type) {
+        this.media_type = media_type;
     }
 }

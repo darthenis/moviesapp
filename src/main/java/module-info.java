@@ -6,6 +6,7 @@ module com.example.movies {
     requires com.fasterxml.jackson.datatype.jsr310;
     requires java.desktop;
     requires java.prefs;
+    requires javafx.web;
 
 
     opens com.example.movies to javafx.fxml;
