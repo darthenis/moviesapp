@@ -156,7 +156,7 @@ public class MovieService {
 
     public ListVideosDTO getVideos(int id) throws IOException {
         Request request = new Request.Builder()
-                .url("https://api.themoviedb.org/3/movie/"+id+"/videos?language=es-ES&api_key="+API_KEY)
+                .url("https://api.themoviedb.org/3/movie/"+id+"/videos?language=es-MX&api_key="+API_KEY)
                 .build();
 
         Response response = client.newCall(request).execute();

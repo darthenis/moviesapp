@@ -5,6 +5,7 @@ import com.example.movies.models.*;
 import com.example.movies.security.SessionManager;
 import com.example.movies.services.MovieService;
 import com.example.movies.services.UserService;
+import com.example.movies.view.MovieDetails;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -20,6 +21,7 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -90,18 +92,15 @@ public class Controller implements Initializable {
     private void addEventClickedMovie(VBox container, Movie movie){
         container.setOnMouseClicked(mouseEvent -> {
             gridMovies.getChildren().clear();
-            gridMovies.getChildren().add(new Label("Loading..."));
-            URL fxmlLocation = App.class.getResource("details-movie.fxml");
-            FXMLLoader fxmlLoader = new FXMLLoader(fxmlLocation);
             try {
 
-                ScrollPane detailPane = fxmlLoader.load();
+                ScrollPane detailPane = MovieDetails.getFxmlLoader();
                 gridMovies.getChildren().clear();
                 gridMovies.getChildren().add(detailPane);
-                DetailsMovieController detailsCardController = fxmlLoader.getController();
+                DetailsMovieController detailsCardController = MovieDetails.getController();
                 detailsCardController.setData(movie);
 
-            } catch (IOException e) {
+            } catch (IOException | URISyntaxException e) {
                 throw new RuntimeException(e);
             }
 
@@ -124,7 +123,11 @@ public class Controller implements Initializable {
                     addEventClickedMovie(movieCardController.getContainerCard(), m);
 
                     gridMovies.add(movieBox, column++, row);
-                    GridPane.setMargin(movieBox, new Insets(5));
+
+                    if(column != 2){
+                        GridPane.setMargin(movieBox, new Insets(5));
+                    }
+
 
                     if(column == 6){
                         column = 1;
@@ -140,7 +143,10 @@ public class Controller implements Initializable {
                     movieCardController.setDataSearch(m);
 
                     gridMovies.add(movieBox, column++, row);
-                    GridPane.setMargin(movieBox, new Insets(5));
+                    if(column != 2){
+                        GridPane.setMargin(movieBox, new Insets(5));
+                    }
+
 
                     if(column == 6){
                         column = 1;
@@ -232,6 +238,7 @@ public class Controller implements Initializable {
 
         this.popularLabel.setOnMouseClicked(mouseEvent -> {
             try {
+                MovieDetails.close();
                 this.movieService.setPage(1);
                 this.listEnum = ListEnum.POPULAR;
                 this.setList(ListEnum.POPULAR);
@@ -248,6 +255,7 @@ public class Controller implements Initializable {
 
         this.topLabel.setOnMouseClicked(mouseEvent -> {
             try {
+                MovieDetails.close();
                 this.movieService.setPage(1);
                 this.listEnum = ListEnum.TOP_RATED;
                 this.setList(ListEnum.TOP_RATED);
@@ -264,6 +272,7 @@ public class Controller implements Initializable {
 
         this.nowPlayingLabel.setOnMouseClicked(mouseEvent -> {
             try {
+                MovieDetails.close();
                 this.movieService.setPage(1);
                 this.listEnum = ListEnum.NOW_PLAYING;
                 this.setList(ListEnum.NOW_PLAYING);
@@ -280,6 +289,7 @@ public class Controller implements Initializable {
 
         this.upcomingLabel.setOnMouseClicked(mouseEvent -> {
             try {
+                MovieDetails.close();
                 this.movieService.setPage(1);
                 this.listEnum = ListEnum.UPCOMING;
                 this.setList(ListEnum.UPCOMING);

@@ -7,6 +7,7 @@ module com.example.movies {
     requires java.desktop;
     requires java.prefs;
     requires javafx.web;
+    requires javafx.media;
 
 
     opens com.example.movies to javafx.fxml;

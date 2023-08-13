@@ -10,22 +10,22 @@
 <?import javafx.scene.text.TextFlow?>
 <?import javafx.scene.web.WebView?>
 
-<ScrollPane fx:id="scrollDetail" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="891.0" styleClass="edge-to-edge" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.movies.controllers.DetailsMovieController">
+<ScrollPane fx:id="scrollDetail" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="950.0" styleClass="edge-to-edge" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.movies.controllers.DetailsMovieController">
    <content>
-      <VBox alignment="TOP_CENTER" prefHeight="646.0" prefWidth="875.0" style="-fx-background-color: black;">
+      <VBox alignment="TOP_CENTER" prefHeight="549.0" prefWidth="934.0" style="-fx-background-color: black;">
          <children>
-            <Label fx:id="tagLineLabel" prefHeight="47.0" prefWidth="862.0" style="-fx-alignment: CENTER;" text="Label" textFill="WHITE">
+            <Label fx:id="tagLineLabel" prefHeight="47.0" prefWidth="862.0" style="-fx-alignment: CENTER;" textFill="WHITE">
                <font>
                   <Font size="32.0" />
                </font>
             </Label>
-            <HBox prefHeight="508.0" prefWidth="878.0">
+            <HBox alignment="TOP_CENTER" prefHeight="508.0" prefWidth="925.0">
                <children>
-                  <ImageView fx:id="imageDetails" fitHeight="487.0" fitWidth="388.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageDetails" fitHeight="487.0" fitWidth="388.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                      <HBox.margin>
-                        <Insets left="50.0" />
+                        <Insets />
                      </HBox.margin></ImageView>
-                  <VBox alignment="TOP_CENTER" prefHeight="347.0" prefWidth="417.0">
+                  <VBox prefHeight="508.0" prefWidth="494.0">
                      <children>
                         <TextFlow prefHeight="52.0" prefWidth="410.0">
                            <children>
@@ -36,55 +36,70 @@
                               </Label>
                            </children>
                         </TextFlow>
-                        <Label prefHeight="18.0" prefWidth="54.0" text="Sinopsis:" textFill="WHITE">
+                        <Label prefHeight="20.0" prefWidth="62.0" text="Sinopsis:" textFill="WHITE">
                            <font>
-                              <Font name="System Bold" size="13.0" />
+                              <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
                         <TextFlow fx:id="sinopsisContainer" prefWidth="410.0" />
-                        <TextFlow prefHeight="59.0" prefWidth="398.0">
+                        <TextFlow prefHeight="90.0" prefWidth="398.0">
                            <children>
-                              <Label prefHeight="23.0" prefWidth="54.0" text="Director:" textFill="WHITE">
+                              <Label prefHeight="23.0" prefWidth="62.0" text="Director:" textFill="WHITE">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="directorLabel" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="336.0" text="Label" textFill="WHITE" />
-                              <Label prefHeight="18.0" prefWidth="49.0" text="Casting:" textFill="WHITE">
+                              <Label fx:id="directorLabel" minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="409.0" text="Label" textFill="WHITE">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font size="14.0" />
+                                 </font></Label>
+                              <Label prefHeight="20.0" prefWidth="55.0" text="Casting:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="castingLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="347.0" text="Label" textFill="WHITE" />
-                              <Label prefHeight="18.0" prefWidth="102.0" text="Fecha de estreno:" textFill="WHITE">
+                              <Label fx:id="castingLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="418.0" text="Label" textFill="WHITE">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font size="14.0" />
+                                 </font></Label>
+                              <Label prefHeight="20.0" prefWidth="122.0" text="Fecha de estreno:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="dateLabel" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="294.0" text="Label" textFill="WHITE" />
-                              <Label prefHeight="18.0" prefWidth="47.0" text="Género:" textFill="WHITE">
+                              <Label fx:id="dateLabel" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="346.0" text="Label" textFill="WHITE">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font size="14.0" />
+                                 </font></Label>
+                              <Label prefHeight="20.0" prefWidth="55.0" text="Género:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="genreLabel" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="348.0" text="Label" textFill="WHITE" />
-                              <Label prefHeight="18.0" prefWidth="70.0" text="Valoración:" textFill="WHITE">
+                              <Label fx:id="genreLabel" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="412.0" text="Label" textFill="WHITE">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font size="14.0" />
+                                 </font></Label>
+                              <Label prefHeight="20.0" prefWidth="78.0" text="Valoración:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="avaregeLabel" minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="325.0" text="Label" textFill="WHITE" />
+                              <Label fx:id="avaregeLabel" prefHeight="20.0" prefWidth="138.0" text="Label" textFill="WHITE">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label minHeight="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="472.0" style="-fx-alignment: center;" text="Trailer" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Label>
                            </children>
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
                         </TextFlow>
-                        <Label prefHeight="28.0" prefWidth="398.0" style="-fx-alignment: center;" text="Trailer" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <WebView fx:id="trailerView" prefHeight="200.0" prefWidth="200.0" />
+                        <WebView fx:id="trailerView" prefHeight="262.0" prefWidth="474.0" />
                      </children>
                      <padding>
                         <Insets left="10.0" right="10.0" />

@@ -1,25 +1,25 @@
 package com.example.movies.controllers;
 
-import com.example.movies.App;
 import com.example.movies.DTO.ListVideosDTO;
 import com.example.movies.DTO.VideosDTO;
 import com.example.movies.models.*;
 import com.example.movies.services.MovieService;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.scene.web.WebView;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -62,23 +62,31 @@ public class DetailsMovieController implements Initializable {
 
     private MovieService movieService;
 
+    private String linkYotube;
+
     String baseUrl = "https://image.tmdb.org/t/p/w500";
 
     public DetailsMovieController(){
         this.movieService = new MovieService();
     }
 
-    public void setData(Movie movie) throws IOException {
+    public void setData(Movie movie) throws IOException, URISyntaxException {
         MovieDetail movieDetail = movieService.getDetailMovie(movie.getId());
         ListVideosDTO listVideosDTO = movieService.getVideos(movieDetail.getId());
         for (VideosDTO video : listVideosDTO.getResults()) {
-            if (video.getSite().equals("YouTube")) {
+            if (video.getSite().equals("YouTube") && video.isOfficial() && video.getType().equals("Trailer")) {
                 trailerView.getEngine().load("https://www.youtube.com/embed/"+video.getKey());
                 break; // Encontramos el primer objeto que coincide, salimos del bucle
             }
         }
         avaregeLabel.setText(String.valueOf(movieDetail.getVote_average())+ " ("+String.valueOf(movieDetail.getVote_count())+")");
-        tagLineLabel.setText(movieDetail.getTagline());
+        if(movieDetail.getTagline().isEmpty()){
+            tagLineLabel.setPrefHeight(30);
+            tagLineLabel.setFont(new Font(32));
+        }else{
+            tagLineLabel.setText(movieDetail.getTagline());
+        }
+
         Image image = new Image(baseUrl+movieDetail.getPoster_path(), true);
         imageDetails.setImage(image);
         List<Genre> genres = movieDetail.getGenres();
@@ -86,7 +94,9 @@ public class DetailsMovieController implements Initializable {
                 .map(Genre::getName)
                 .collect(Collectors.joining(", ")));
         Text textSinopsis = new Text(movieDetail.getOverview());
+        textSinopsis.setFont(new Font(14));
         textSinopsis.setStyle("-fx-fill: white;");
+        sinopsisContainer.getChildren().clear();
         sinopsisContainer.getChildren().add(textSinopsis);
         dateLabel.setText(movieDetail.getRelease_date());
         titleLabel.setText(movieDetail.getTitle());
@@ -149,9 +159,19 @@ public class DetailsMovieController implements Initializable {
         });
     }*/
 
+
+    @FXML
+    void openLink(MouseEvent event) throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI(linkYotube));
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         scrollDetail.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollDetail.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+    }
+
+    public void close(){
+        trailerView.getEngine().load(null); // Detener cualquier carga de contenido
     }
 }
